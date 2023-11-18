@@ -15,6 +15,7 @@ public class HomeController {
     public String homePage(Model model) {
         List<Book> bookList = new ArrayList<>();
         bookList.add(new ScienceBook(0, "some title", "some descr", 100));
+        bookList.add(new ScienceBook(1, "another title", "another descr", 10000));
         model.addAttribute("bookList", bookList);
         return "index";
     }
