@@ -1,12 +1,15 @@
 package org.example.Factory;
 
+import org.example.Strategy.Strategy;
+
 public class EducationalBook implements Book{
     private String title;
     private String description;
-    private int price;
+    private double price;
+    private Strategy strategy;
 
 
-    public EducationalBook(String title, String description, int price) {
+    public EducationalBook(String title, String description, int price, ) {
         this.title = title;
         this.description = description;
         this.price = price;

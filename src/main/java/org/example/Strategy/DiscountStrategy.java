@@ -1,4 +1,4 @@
 package org.example.Strategy;
 
-public class Discount {
+public class DiscountStrategy {
 }

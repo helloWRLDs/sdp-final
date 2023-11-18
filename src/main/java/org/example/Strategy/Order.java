@@ -7,19 +7,22 @@ import java.util.List;
 public class Order {
     private List<Book> books = new ArrayList<>();
     private double totalPrice;
-    private Strategy Shipping;
+    private Strategy shipping;
 
     public void addBook(Book book) {
         books.add(book);
         totalPrice += book.getPrice();
     }
+
     public void setShipping(Strategy Shipping) {
-        this.Shipping = Shipping;
+        this.shipping = Shipping;
     }
+
     public double getTotalPrice() {
         return totalPrice;
     }
+
     public double calculateShippingCost() {
-        return Shipping.calculateShippingCost(this);
+        return shipping.calculateShippingCost(this);
     }
 }
