@@ -9,6 +9,7 @@ public class Database {
     private static final String url = Dotenv.load().get("url");
     private static final String user = Dotenv.load().get("user");
     private static final String password = Dotenv.load().get("password");
+    public int value = 1;
     static Connection connection;
     static {
         try {
@@ -24,7 +25,6 @@ public class Database {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     private Database() {}
