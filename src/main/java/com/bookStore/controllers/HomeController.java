@@ -1,5 +1,6 @@
 package com.bookStore.controllers;
 
+import com.bookStore.dao.BookDAO;
 import com.bookStore.patterns.Factory.*;
 
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,7 @@ import java.util.List;
 public class HomeController {
     @GetMapping("/")
     public String homePage(Model model) {
-        List<Book> bookList = new ArrayList<>();
-        bookList.add(new ScienceBook(0, "some title", "some descr", 100));
-        bookList.add(new ScienceBook(1, "another title", "another descr", 10000));
+        List<Book> bookList = BookDAO.getAllBooks();
         model.addAttribute("bookList", bookList);
         return "index";
     }

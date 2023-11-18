@@ -16,9 +16,9 @@ public class Database {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             Statement st = connection.createStatement();
-            st.executeUpdate("create database if not exists test;");
+            st.executeUpdate("create database if not exists bs;");
 
-            st.executeUpdate("create table if not exists test.books (id INT AUTO_INCREMENT PRIMARY KEY, title text not null, descr text);");
+            st.executeUpdate("create table if not exists bs.books (id INT AUTO_INCREMENT PRIMARY KEY, title text not null, descr text, type text, price int);");
             st.close();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

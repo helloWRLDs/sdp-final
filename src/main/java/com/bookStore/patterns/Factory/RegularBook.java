@@ -1,12 +1,12 @@
 package com.bookStore.patterns.Factory;
 
-public class EBook implements Book {
+public class RegularBook implements Book{
     private int id;
     private String title;
     private String description;
     private int price;
 
-    public EBook(int id, String title, String description, int price) {
+    public RegularBook(int id, String title, String description, int price) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -35,6 +35,6 @@ public class EBook implements Book {
 
     @Override
     public String getType() {
-        return "e";
+        return "r";
     }
 }

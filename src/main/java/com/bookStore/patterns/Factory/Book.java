@@ -4,4 +4,6 @@ public interface Book {
     String getDescription();
     String getTitle();
     int getPrice();
+    int getId();
+    String getType();
 }
