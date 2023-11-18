@@ -1,22 +1,15 @@
 package com.bookStore.patterns.Factory;
 
-public class ScienceBook implements Book{
-    private int id;
+public class EBook implements Book {
     private String title;
     private String description;
-    private double price;
+    private int price;
 
 
-    public ScienceBook(int id, String title, String description, int price) {
-        this.id = id;
+    public EBook(String title, String description, int price) {
         this.title = title;
         this.description = description;
         this.price = price;
-    }
-
-    @Override
-    public int getId() {
-        return this.id;
     }
 
     @Override
@@ -30,7 +23,7 @@ public class ScienceBook implements Book{
     }
 
     @Override
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 }
