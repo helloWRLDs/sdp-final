@@ -1,12 +1,15 @@
-package org.example.Factory;
+package com.bookStore.patterns.Factory;
 
-public class FictionBook implements Book{
+
+
+public class AudioBook implements Book {
     private String title;
     private String description;
     private int price;
 
 
-    public FictionBook(String title, String description, int price) {
+
+    public AudioBook(String title, String description, int price) {
         this.title = title;
         this.description = description;
         this.price = price;
