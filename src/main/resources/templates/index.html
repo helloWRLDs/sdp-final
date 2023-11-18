@@ -19,10 +19,10 @@
             </tr>
             <tbody th:each="book : ${bookList}">
             <tr class="book-table-body">
-                <td th:text="${book.getId()}">0</td>
-                <td th:text="${book.getTitle()}">gnjkfds</td>
-                <td th:text="${book.getDescription()}">gfd</td>
-                <td th:text="${book.getPrice()}">100$</td>
+                <td th:text="${book.getId()}"></td>
+                <td th:text="${book.getTitle()}"></td>
+                <td th:text="${book.getDescription()}"></td>
+                <td><span th:text="${book.getPrice()}"></span>$</td>
                 <td>
                     <span th:if='${book.getType() == "r"}'>Regular Book</span>
                     <span th:if='${book.getType() == "a"}'>Audio Book</span>

@@ -16,6 +16,9 @@ public class BookStoreInstance implements Observed {
         bookList = BookDAO.getAllBooks();
     }
 
+    public List<Book> getBookList() {
+        return bookList;
+    }
 
     @Override
     public void addObserver(Observer observer) {

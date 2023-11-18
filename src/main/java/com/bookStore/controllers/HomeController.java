@@ -1,7 +1,6 @@
 package com.bookStore.controllers;
 
-import com.bookStore.dao.BookDAO;
-import com.bookStore.patterns.Factory.*;
+import com.bookStore.BookStoreInstance;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +11,10 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    BookStoreInstance bookStore = new BookStoreInstance();
     @GetMapping("/")
     public String homePage(Model model) {
-        List<Book> bookList = BookDAO.getAllBooks();
-        model.addAttribute("bookList", bookList);
+        model.addAttribute("bookList", bookStore.getBookList());
         return "index";
     }
 }
