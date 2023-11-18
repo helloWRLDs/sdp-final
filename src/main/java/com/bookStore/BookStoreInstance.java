@@ -17,6 +17,7 @@ public class BookStoreInstance implements Observed {
     }
 
     public List<Book> getBookList() {
+        notifyObservers();
         return bookList;
     }
 

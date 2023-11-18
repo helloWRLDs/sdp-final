@@ -12,6 +12,7 @@ import java.util.List;
 @Controller
 public class HomeController {
     BookStoreInstance bookStore = new BookStoreInstance();
+
     @GetMapping("/")
     public String homePage(Model model) {
         model.addAttribute("bookList", bookStore.getBookList());
