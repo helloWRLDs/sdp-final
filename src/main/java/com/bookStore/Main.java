@@ -13,5 +13,7 @@ public class Main {
         for (Book book : bookList) {
             System.out.println(book.getTitle());
         }
+
+        System.out.println("a".equalsIgnoreCase(Character.toString('a')));
     }
 }

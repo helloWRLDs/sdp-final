@@ -1,9 +1,6 @@
 package com.bookStore.patterns.Singleton;
 
-import com.bookStore.patterns.Factory.AudioBook;
-import com.bookStore.patterns.Factory.Book;
-import com.bookStore.patterns.Factory.EBook;
-import com.bookStore.patterns.Factory.RegularBook;
+import com.bookStore.patterns.Factory.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,5 +27,20 @@ public class BookRepository {
             throw new RuntimeException(e);
         }
         return bookList;
+    }
+
+    public static void insertBook(Book book) {
+        try {
+            PreparedStatement statement = database.getConnection().prepareStatement(
+                    "INSERT INTO bs.books(title, descr, type, price) value (?, ?, ?, ?)"
+            );
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getDescription());
+            statement.setString(3, book.getType());
+            statement.setInt(4, book.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
