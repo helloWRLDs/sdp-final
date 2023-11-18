@@ -1,0 +1,31 @@
+html {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.book-table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.book-table-head th {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.book-table-body {
+    text-align: center;
+    padding: 10px;
+}
+
+.book-table-body:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.book-table td {
+    padding: 10px 20px;
+}

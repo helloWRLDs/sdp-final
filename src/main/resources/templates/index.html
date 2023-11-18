@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello World</h1>
+        <table class="book-table">
+            <tr class="book-table-head">
+                <th>id</th>
+                <th>name</th>
+                <th>description</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+            <tbody th:each="book : ${bookList}">
+            <tr class="book-table-body">
+                <td th:text="${book.getId()}">0</td>
+                <td th:text="${book.getTitle()}">gnjkfds</td>
+                <td th:text="${book.getDescription()}">gfd</td>
+                <td th:text="${book.getPrice()}">100$</td>
+                <td>
+                    <form action=""><input type="submit" value="buy"></form></td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

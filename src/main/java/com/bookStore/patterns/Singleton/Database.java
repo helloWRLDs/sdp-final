@@ -1,4 +1,4 @@
-package org.example.Singleton;
+package com.bookStore.patterns.Singleton;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
