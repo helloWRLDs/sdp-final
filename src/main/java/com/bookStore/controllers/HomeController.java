@@ -1,17 +1,14 @@
 package com.bookStore.controllers;
 
-import com.bookStore.BookStoreInstance;
+import com.bookStore.BookStore;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class HomeController {
-    BookStoreInstance bookStore = new BookStoreInstance();
+    BookStore bookStore = new BookStore();
 
     @GetMapping("/")
     public String homePage(Model model) {

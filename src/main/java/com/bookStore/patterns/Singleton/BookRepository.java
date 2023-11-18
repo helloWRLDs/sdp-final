@@ -1,10 +1,9 @@
-package com.bookStore.dao;
+package com.bookStore.patterns.Singleton;
 
 import com.bookStore.patterns.Factory.AudioBook;
 import com.bookStore.patterns.Factory.Book;
 import com.bookStore.patterns.Factory.EBook;
 import com.bookStore.patterns.Factory.RegularBook;
-import com.bookStore.patterns.Singleton.Database;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookDAO {
+public class BookRepository {
     static Database database = Database.getInstance();
 
     public static List<Book> getAllBooks() {
