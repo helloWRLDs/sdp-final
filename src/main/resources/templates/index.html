@@ -22,10 +22,17 @@
                 <td th:text="${book.getId()}"></td>
                 <td th:text="${book.getTitle()}"></td>
                 <td th:text="${book.getDescription()}"></td>
-                <td><span th:text="${book.getPrice()}"></span>$</td>
+                <td>
+                    <span th:text="${book.getStrategy()} ? ${book.getStrategy().applyDiscount(book.getPrice())} : ${book.getPrice()}"></span>$
+                </td>
                 <td th:text="${book.getTags()}"></td>
                 <td>
-                    <form action=""><input type="submit" value="buy" class="book-table-body-btn"></form>
+                    <form th:action="@{/apply-discount/{id}/{discount} (discount='holiday', id=${book.getId()})}">
+                        <input type="submit" value="Holiday" class="book-table-body-btn btn">
+                    </form>
+                    <form th:action="@{/apply-discount/{id}/{discount} (discount='blackfriday', id=${book.getId()})}">
+                        <input type="submit" value="BlackFriday" class="book-table-body-btn btn">
+                    </form>
                 </td>
             </tr>
             </tbody>

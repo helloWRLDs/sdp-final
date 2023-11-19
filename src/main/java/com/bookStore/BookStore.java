@@ -6,6 +6,8 @@ import com.bookStore.patterns.Factory.DecoratorFactory;
 import com.bookStore.patterns.Singleton.BookRepository;
 import com.bookStore.patterns.Observer.Observed;
 import com.bookStore.patterns.Observer.Observer;
+import com.bookStore.patterns.Strategy.BlackFridayDiscount;
+import com.bookStore.patterns.Strategy.HolidayDiscount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +20,12 @@ public class BookStore implements Observed {
         bookList = BookRepository.getAllBooks();
     }
 
-    public List<Book> getBookList() {
+    public List<Book> updateBookList() {
         bookList = BookRepository.getAllBooks();
-        notifyObservers();
+        return bookList;
+    }
+
+    public List<Book> getBookList() {
         return bookList;
     }
 
@@ -36,7 +41,25 @@ public class BookStore implements Observed {
             }
         }
         BookRepository.insertBook(newBook);
-        bookList = BookRepository.getAllBooks();
+        bookList = updateBookList();
+        notifyObservers();
+    }
+
+    public Book getBookById(int id) {
+        for (Book book : bookList) {
+            if (id == book.getId()) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public void applyDiscount(int id, String discount) {
+        if (discount.equalsIgnoreCase("holiday")) {
+            bookList.get(id - 1).setStrategy(new HolidayDiscount());
+        } else {
+            bookList.get(id - 1).setStrategy(new BlackFridayDiscount());
+        }
     }
 
     @Override

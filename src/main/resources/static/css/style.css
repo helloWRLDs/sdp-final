@@ -31,6 +31,11 @@ html {
     padding: 10px 20px;
 }
 
+.book-table-body-btn {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
 .add-book-lbl {
     display: block;
     margin-bottom: 10px;
