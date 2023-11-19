@@ -12,7 +12,7 @@ public class Book {
     private String tags = "";
 
     public String toString() {
-        return String.format("title: %s  description: %s  tags: %s price: %d\n", getTitle(), getDescription(), getTags(), getPrice());
+        return String.format("%s: %s  \ntags: %s \nprice: %d$\n", getTitle(), getDescription(), getTags(), getPrice());
     }
 
     public String getTags() {

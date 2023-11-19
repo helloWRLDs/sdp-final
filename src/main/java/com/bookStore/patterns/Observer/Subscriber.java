@@ -7,21 +7,32 @@ import java.util.List;
 
 public class Subscriber implements Observer{
     private String name;
-
-    public Subscriber(String name) {
-        this.name = name;
-    }
+    private String email;
 
     @Override
     public void handleEvent(List<Book> bookList) {
-        System.out.printf("Hello, %s. We have updated our storage!\n[ ", this.name);
+        MailNotification mailNotification = new MailNotification();
+        String subject = String.format("Hello, %s. We have updated our storage!", this.name);
+        String text = "";
         for (Book book : bookList) {
-            System.out.print(book.getTitle());
-            if (bookList.indexOf(book) != bookList.size() - 1) {
-                System.out.print(", ");
-            } else {
-                System.out.print(" ]\n");
-            }
+            text += book.toString() + "\n";
         }
+        mailNotification.sendMessage(mailNotification.session, this.email, subject, text);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

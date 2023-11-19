@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <form th:action="@{/add-obs}" th:object="${observer}" th:method="POST">
+            <label for="name" class="add-book-lbl">Observer Name</label>
+            <input type="text" th:field="*{name}" id="name">
+
+            <label for="email" class="add-book-lbl">Observer Email</label>
+            <input type="email" th:field="*{email}" id="email">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

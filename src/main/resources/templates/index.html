@@ -31,9 +31,20 @@
             </tbody>
         </table>
 
-        <form th:action="@{/add}" th:method="GET">
-            <input type="submit" value="Add Book" class="btn">
-        </form>
+        <div class="flex">
+            <div class="btn-form">
+                <form th:action="@{/add}" th:method="GET" >
+                    <input type="submit" value="Add Book" class="btn">
+                </form>
+            </div>
+
+            <div class="btn-form">
+                <form th:action="@{/add-obs}" th:method="GET">
+                    <input type="submit" value="Add Observer" class="btn">
+                </form>
+            </div>
+
+        </div>
     </div>
 </body>
 </html>

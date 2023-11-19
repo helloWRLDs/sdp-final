@@ -54,3 +54,11 @@ html {
 .btn:hover {
     background-color: #01b001;
 }
+
+.flex {
+    display: flex;
+}
+
+.btn-form:not(:last-child) {
+    margin-right: 20px;
+}
