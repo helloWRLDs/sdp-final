@@ -32,11 +32,6 @@ public class BookRepository {
     }
 
     public static void insertBook(Book book) {
-        System.out.println(book.getTitle());
-        System.out.println(book.getDescription());
-        System.out.println(book.getPrice());
-        System.out.println(book.getTags());
-
         try {
             PreparedStatement statement = database.getConnection().prepareStatement(
                     "INSERT INTO bs.books(title, descr, price, tags) value (?, ?, ?, ?)"
@@ -49,5 +44,26 @@ public class BookRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static Book getById(int id) {
+        Book book = new Book();
+        try {
+            PreparedStatement statement = database.getConnection().prepareStatement(
+                    "SELECT * FROM bs.books WHERE id=?"
+            );
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                book.setId(rs.getInt("id"));
+                book.setTitle(rs.getString("title"));
+                book.setDescription(rs.getString("description"));
+                book.setTags(rs.getString("tags"));
+                book.setPrice(rs.getInt("price"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return book;
     }
 }

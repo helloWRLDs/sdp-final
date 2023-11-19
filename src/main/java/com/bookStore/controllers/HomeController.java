@@ -2,6 +2,7 @@ package com.bookStore.controllers;
 
 import com.bookStore.BookStore;
 
+import com.bookStore.entity.Book;
 import com.bookStore.entity.BookStruct;
 import com.bookStore.patterns.Observer.Subscriber;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,13 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/apply-discount/{id}/{discount}")
+    public String discount(@PathVariable("id") int id, @PathVariable("discount") String discount) {
+        Book book = bookStore.getBookById(id);
+        bookStore.applyDiscount(id, discount);
+        return "redirect:/";
+    }
+
     @GetMapping("/add")
     public String addBookMenu(Model model) {
         model.addAttribute("book", new BookStruct());
@@ -27,6 +35,7 @@ public class HomeController {
     @PostMapping("/add")
     public String addBook(@ModelAttribute("book") BookStruct book) {
         bookStore.addBook(book);
+        bookStore.updateBookList();
         return "redirect:/";
     }
 

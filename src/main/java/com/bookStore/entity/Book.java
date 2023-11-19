@@ -1,6 +1,8 @@
 package com.bookStore.entity;
 
 
+import com.bookStore.patterns.Strategy.Strategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,15 @@ public class Book {
     private int price;
     private int id;
     private String tags = "";
+    private Strategy strategy;
+
+    public Strategy getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(Strategy strategy) {
+        this.strategy = strategy;
+    }
 
     public String toString() {
         return String.format("%s: %s  \ntags: %s \nprice: %d$\n", getTitle(), getDescription(), getTags(), getPrice());
