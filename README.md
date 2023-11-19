@@ -8,11 +8,12 @@
 
 
 ## Software Design Patterns Used:
-- Singleton
-- Factory
-- Observer
-- Strategy
-- Decorator
+- Singleton: Single database connection which will be used in multiple methods.
+- Factory: Based on condition addition of different decorators.
+- Observer: Email notification system.
+- Strategy: Strategy for discount system.
+- Decorator: Decorator for flex addition of multiple tags.
+- Builder: Concrete creating of SQL queries.
 
 ## Frameworks used:
 - Spring Boot
@@ -34,7 +35,7 @@ The purpose of this project is to introduce a fully functional online bookstore 
 
 ### UML Diagram:
 
-![UML Diagram](url-to-uml-diagram)
+![UML Diagram](src/main/resources/static/images/java.png)
 
 
 ## Conclusion:
@@ -49,4 +50,5 @@ The purpose of this project is to introduce a fully functional online bookstore 
 ### Future Improvements:
 - Enhance the user interface for a more engaging experience.
 - Expand the book inventory and explore additional features for users.
+- Add more possibilities for our website.
 
