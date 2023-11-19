@@ -2,8 +2,7 @@ package com.bookStore.controllers;
 
 import com.bookStore.BookStore;
 
-import com.bookStore.patterns.Factory.ExampleBook;
-import com.bookStore.patterns.Factory.RegularBook;
+import com.bookStore.entity.BookStruct;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
@@ -20,13 +19,12 @@ public class HomeController {
 
     @GetMapping("/add")
     public String addBookMenu(Model model) {
-        model.addAttribute("book", new ExampleBook());
+        model.addAttribute("book", new BookStruct());
         return "addBook";
     }
 
     @PostMapping("/add")
-    public String addBook(@ModelAttribute("book") ExampleBook book) {
-        System.out.println(book.type);
+    public String addBook(@ModelAttribute("book") BookStruct book) {
         bookStore.addBook(book);
         return "redirect:/";
     }

@@ -1,19 +1,17 @@
 package com.bookStore;
 
-import com.bookStore.patterns.Factory.Book;
+import com.bookStore.entity.Book;
+import com.bookStore.patterns.Decorator.DetectiveTag;
+import com.bookStore.patterns.Decorator.DramaTag;
+import com.bookStore.patterns.Decorator.MysteryTag;
 import com.bookStore.patterns.Observer.Subscriber;
+import com.bookStore.patterns.Singleton.BookRepository;
+import com.bookStore.patterns.Singleton.Database;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        BookStore bookStore = new BookStore();
-        bookStore.addObserver(new Subscriber("Vova"));
-        List<Book> bookList = bookStore.getBookList();
-        for (Book book : bookList) {
-            System.out.println(book.getTitle());
-        }
-
-        System.out.println("a".equalsIgnoreCase(Character.toString('a')));
+        System.out.println("Hello");
     }
 }

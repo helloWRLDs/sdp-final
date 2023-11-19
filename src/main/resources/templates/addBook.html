@@ -17,11 +17,34 @@
             <label for="price" class="add-book-lbl">Book Price</label>
             <input type="number" th:field="*{price}" id="price">
 
-            <select th:field="*{type}" class="add-book-lbl">
-                <option th:type="text" value="r">Regular</option>
-                <option th:type="text" th:value="a">Audio</option>
-                <option th:type="text" th:value="e">Electronic</option>
-            </select>
+
+            <div class="block">
+                <input type="checkbox" th:field="*{tags}" th:value="mystery">
+                <label for="tags1">Mystery</label>
+            </div>
+
+
+            <div class="block">
+                <input type="checkbox" th:field="*{tags}" th:value="detective">
+                <label for="tags2">Detective</label>
+            </div>
+
+            <div class="block">
+                <input type="checkbox" th:field="*{tags}" th:value="drama">
+                <label for="tags3">Drama</label>
+            </div>
+
+            <div class="block">
+                <input type="checkbox" th:field="*{tags}" th:value="thriller">
+                <label for="tags4">Thriller</label>
+            </div>
+
+            <div class="block">
+                <input type="checkbox" th:field="*{tags}" th:value="history">
+                <label for="tags5">History</label>
+            </div>
+
+
             <input type="submit" value="Submit" class="btn">
         </form>
     </div>

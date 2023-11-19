@@ -1,6 +1,6 @@
 package com.bookStore.patterns.Singleton;
 
-import com.bookStore.patterns.Factory.*;
+import com.bookStore.entity.Book;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,11 +17,13 @@ public class BookRepository {
             PreparedStatement statement = database.getConnection().prepareStatement("SELECT * FROM bs.books;");
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                switch (rs.getString("type").toLowerCase()) {
-                    case "a" -> bookList.add(new AudioBook(rs.getInt("id"), rs.getString("title"), rs.getString("descr"), rs.getInt("price")));
-                    case "e" -> bookList.add(new EBook(rs.getInt("id"), rs.getString("title"), rs.getString("descr"), rs.getInt("price")));
-                    case "r" -> bookList.add(new RegularBook(rs.getInt("id"), rs.getString("title"), rs.getString("descr"), rs.getInt("price")));
-                }
+                Book book = new Book();
+                book.setId(rs.getInt("id"));
+                book.setTitle(rs.getString("title"));
+                book.setDescription(rs.getString("descr"));
+                book.setPrice(rs.getInt("price"));
+                book.setTags(rs.getString("tags"));
+                bookList.add(book);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -30,14 +32,19 @@ public class BookRepository {
     }
 
     public static void insertBook(Book book) {
+        System.out.println(book.getTitle());
+        System.out.println(book.getDescription());
+        System.out.println(book.getPrice());
+        System.out.println(book.getTags());
+
         try {
             PreparedStatement statement = database.getConnection().prepareStatement(
-                    "INSERT INTO bs.books(title, descr, type, price) value (?, ?, ?, ?)"
+                    "INSERT INTO bs.books(title, descr, price, tags) value (?, ?, ?, ?)"
             );
             statement.setString(1, book.getTitle());
             statement.setString(2, book.getDescription());
-            statement.setString(3, book.getType());
-            statement.setInt(4, book.getId());
+            statement.setInt(3, book.getPrice());
+            statement.setString(4, book.getTags());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

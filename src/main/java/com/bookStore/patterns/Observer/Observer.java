@@ -1,7 +1,6 @@
 package com.bookStore.patterns.Observer;
 
-import com.bookStore.controllers.*;
-import com.bookStore.patterns.Factory.Book;
+import com.bookStore.entity.Book;
 
 import java.util.List;
 

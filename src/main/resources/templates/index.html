@@ -14,7 +14,7 @@
                 <th>name</th>
                 <th>description</th>
                 <th>price</th>
-                <th>type</th>
+                <th>tags</th>
                 <th></th>
             </tr>
             <tbody th:each="book : ${bookList}">
@@ -23,11 +23,7 @@
                 <td th:text="${book.getTitle()}"></td>
                 <td th:text="${book.getDescription()}"></td>
                 <td><span th:text="${book.getPrice()}"></span>$</td>
-                <td>
-                    <span th:if='${book.getType() == "r"}'>Regular Book</span>
-                    <span th:if='${book.getType() == "a"}'>Audio Book</span>
-                    <span th:if='${book.getType() == "e"}'>Electronic Book</span>
-                </td>
+                <td th:text="${book.getTags()}"></td>
                 <td>
                     <form action=""><input type="submit" value="buy" class="book-table-body-btn"></form>
                 </td>
